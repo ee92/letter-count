@@ -2,19 +2,15 @@
 # to the number of times it appears in the string
 
 def letter_count(str)
-  arr = Hash.new               # empty hash map
-  i = 0                        # start outer loop at index 0
-  while i < str.length
-    j = 0                      # start inner loop at index 0
-    count = 0                  # count appearances starting at 0
-    while j < str.length
-      if str[i]== str[j]       # compare indexes (includes self)
-        count = count + 1      # increase count
-      end
-      j = j+1                  # increment inner loop index
-    end
-    arr[str[i]] = count        # add key and value to hash map
-    i = i+1                    # increment outer loop index
+  arr = Hash.new(0)
+  index = 0
+  while index < str.length
+    arr[str[index]] = arr[str[index]] + 1
+    index = index + 1
   end
-  return arr                   # return filled hash map
+  return arr
 end
+
+# this is way better than the other way..
+# it just loops thru each char of the string and adds 1
+# to its value in the hash array (default value 0) 
